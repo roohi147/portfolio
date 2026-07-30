@@ -80,7 +80,7 @@ export const Hero: React.FC = () => {
           className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm font-semibold mb-6 tracking-wide"
         >
           <Sparkles size={14} className="animate-pulse" />
-          <span>Available for Placements & Research Roles</span>
+          <span>Available for Internships & Full-Time Roles</span>
         </motion.div>
 
         {/* Big Name */}

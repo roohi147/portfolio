@@ -140,13 +140,7 @@ body {
   background: linear-gradient(180deg, var(--accent-pink), var(--accent-purple));
 }
 
-/* Hide cursor standard on desktop to allow custom follow cursor */
-@media (min-width: 1024px) {
-  .custom-cursor-active,
-  .custom-cursor-active * {
-    cursor: none !important;
-  }
-}
+
 
 /* Typing Caret Animation */
 @keyframes blink {

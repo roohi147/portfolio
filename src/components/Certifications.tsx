@@ -4,6 +4,13 @@ import { CheckCircle, ShieldCheck } from 'lucide-react';
 export const Certifications: React.FC = () => {
   const certifications = [
     {
+      title: 'Java Certified Foundations Associate',
+      issuer: 'Oracle University',
+      year: '2026',
+      badgeColor: 'text-amber-400 border-amber-500/20 bg-amber-500/10',
+      description: 'Oracle Certified Foundations Associate credential verifying core knowledge of Java programming language, logic structures, OOP principles, exception handling, and arrays.'
+    },
+    {
       title: 'Cybersecurity Analyst Job Simulation',
       issuer: 'Tata (via Forage)',
       year: '2026',

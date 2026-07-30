@@ -1,6 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
-import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -88,8 +87,7 @@ export const App: React.FC = () => {
         <Background3D />
       </Suspense>
 
-      {/* Trailing Custom Cursor Ring */}
-      <CustomCursor />
+
 
       {/* Global Navigation Bar */}
       <Navbar
