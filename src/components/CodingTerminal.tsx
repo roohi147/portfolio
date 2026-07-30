@@ -16,8 +16,14 @@ export const CodingTerminal: React.FC = () => {
   const terminalEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const isFirstRender = useRef(true);
+
   // Auto-scroll terminal to bottom on history change
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [history]);
 
