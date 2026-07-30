@@ -24,6 +24,23 @@ export const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
+  // Force scroll to top on initial page load / refresh
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    
+    // Immediate scroll
+    window.scrollTo(0, 0);
+
+    // Delayed scroll to top to override any layout shifts or lazy loading delays
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 250);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   // Apply Light/Dark class to root HTML element
   useEffect(() => {
     if (darkMode) {

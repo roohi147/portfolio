@@ -12,10 +12,13 @@ export const Chatbot: React.FC = () => {
     { text: 'Hi! I am Roohi\'s AI assistant. Ask me anything about her skills, experience, projects, or grades!', sender: 'bot' },
   ]);
   const [input, setInput] = useState('');
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatBodyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    chatBodyRef.current?.scrollTo({
+      top: chatBodyRef.current.scrollHeight,
+      behavior: 'smooth'
+    });
   }, [messages]);
 
   const quickPrompts = [
@@ -102,7 +105,7 @@ export const Chatbot: React.FC = () => {
           </div>
 
           {/* Messages Container */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-slate-950/20 scrollbar-thin">
+          <div ref={chatBodyRef} className="flex-1 overflow-y-auto p-4 space-y-3.5 bg-slate-950/20 scrollbar-thin">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
@@ -127,7 +130,6 @@ export const Chatbot: React.FC = () => {
                 </div>
               </div>
             ))}
-            <div ref={chatEndRef} />
           </div>
 
           {/* Quick Prompts Helper */}

@@ -13,7 +13,7 @@ export const CodingTerminal: React.FC = () => {
     { text: 'Type "help" to view all available commands.', type: 'output' },
   ]);
   const [inputVal, setInputVal] = useState('');
-  const terminalEndRef = useRef<HTMLDivElement>(null);
+  const terminalBodyRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const isFirstRender = useRef(true);
@@ -24,7 +24,10 @@ export const CodingTerminal: React.FC = () => {
       isFirstRender.current = false;
       return;
     }
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    terminalBodyRef.current?.scrollTo({
+      top: terminalBodyRef.current.scrollHeight,
+      behavior: 'smooth'
+    });
   }, [history]);
 
   const handleTerminalClick = () => {
@@ -149,7 +152,7 @@ export const CodingTerminal: React.FC = () => {
           </div>
 
           {/* Terminal Screen Outputs */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-2.5 scrollbar-thin select-text">
+          <div ref={terminalBodyRef} className="flex-1 overflow-y-auto p-5 space-y-2.5 scrollbar-thin select-text">
             {history.map((line, idx) => (
               <div
                 key={idx}
@@ -164,7 +167,6 @@ export const CodingTerminal: React.FC = () => {
                 {line.text}
               </div>
             ))}
-            <div ref={terminalEndRef} />
           </div>
 
           {/* Input Prompt Area */}
